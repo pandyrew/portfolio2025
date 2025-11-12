@@ -85,51 +85,54 @@ function App() {
 
   return (
     <div className="w-screen h-screen bg-black relative overflow-hidden">
-      <MenuBar />
-      <Desktop onAppOpen={openApp} />
-      <WindowManager
-        windows={openWindows}
-        activeWindow={activeWindow}
-        onClose={closeWindow}
-        onFocus={focusWindow}
-        onUpdate={updateWindow}
-      />
-      <Dock onAppOpen={openApp} />
-
-      {showLanyard && (
-        <div className="fixed inset-0 z-[2000] overflow-visible">
-          <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
-            onClick={closeLanyard}
+      {isLoggedIn && (
+        <>
+          <MenuBar />
+          <Desktop onAppOpen={openApp} />
+          <WindowManager
+            windows={openWindows}
+            activeWindow={activeWindow}
+            onClose={closeWindow}
+            onFocus={focusWindow}
+            onUpdate={updateWindow}
           />
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-visible">
-            <div className="relative pointer-events-auto overflow-visible w-full">
-              <button
+          <Dock onAppOpen={openApp} />
+          {showLanyard && (
+            <div className="fixed inset-0 z-[2000] overflow-visible">
+              <div
+                className="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
                 onClick={closeLanyard}
-                className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md flex items-center justify-center transition-all duration-200 hover:scale-110"
-                style={{
-                  boxShadow:
-                    "0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5)",
-                }}
-              >
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-              <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+              />
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-visible">
+                <div className="relative pointer-events-auto overflow-visible w-full">
+                  <button
+                    onClick={closeLanyard}
+                    className="absolute top-4 left-4 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md flex items-center justify-center transition-all duration-200 hover:scale-110"
+                    style={{
+                      boxShadow:
+                        "0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.5)",
+                    }}
+                  >
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                  <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
       <LoginScreen
         visible={!isLoggedIn}
