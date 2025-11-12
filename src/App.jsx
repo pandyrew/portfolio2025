@@ -4,11 +4,13 @@ import Dock from "./components/Dock";
 import WindowManager from "./components/WindowManager";
 import MenuBar from "./components/MenuBar";
 import Lanyard from "./components/Lanyard";
+import LoginScreen from "./components/LoginScreen";
 
 function App() {
   const [openWindows, setOpenWindows] = useState([]);
   const [activeWindow, setActiveWindow] = useState(null);
   const [showLanyard, setShowLanyard] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const openApp = useCallback((app) => {
     if (app.id === "uci") {
@@ -129,6 +131,12 @@ function App() {
           </div>
         </div>
       )}
+      <LoginScreen
+        visible={!isLoggedIn}
+        onSelectUser={() => {
+          setIsLoggedIn(true);
+        }}
+      />
     </div>
   );
 }
