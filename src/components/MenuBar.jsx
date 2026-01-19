@@ -44,8 +44,8 @@ function MenuBar() {
     <div
       className="fixed top-0 left-0 right-0 h-7 z-50 flex items-center justify-between px-4"
       style={{
-        backgroundColor: "rgba(255, 255, 255, 0.30)",
-        backdropFilter: "blur(40px)",
+        backgroundColor: "rgba(255, 255, 255, 0.50)",
+        backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(40px)",
         borderBottom: "1px solid rgba(255, 255, 255, 0.05)",
       }}
