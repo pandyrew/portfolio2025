@@ -31,6 +31,12 @@
     box-sizing: border-box;
   }
 
+  html,
+  body,
+  #root {
+    background: #f4f1ec;
+  }
+
   body {
     margin: 0;
     padding: 0;
@@ -42,8 +48,15 @@
 
   #root {
     width: 100%;
+    min-height: 100vh;
+  }
+
+  html.desktop-mode,
+  html.desktop-mode body,
+  html.desktop-mode #root {
     height: 100vh;
     overflow: hidden;
+    background: #000;
   }
 }
 
@@ -285,5 +298,27 @@
   .animate-scroll {
     animation: scroll 30s linear infinite;
     will-change: transform;
+  }
+
+  .simple-portfolio {
+    background: #f4f1ec;
+    color: #2a2a2a;
+  }
+
+  .simple-portfolio ::selection {
+    background: #d9d4cb;
+  }
+
+  .simple-serif {
+    font-family: "Instrument Serif", "Libre Caslon Display", Georgia, serif;
+  }
+
+  .simple-meta {
+    font-family: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo,
+      Consolas, monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9a9a9a;
   }
 }
