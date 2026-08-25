@@ -1,7 +1,7 @@
 export const profile = {
   name: "andrew hwang",
   photo: "/simple-photo.JPG",
-  bio: "is a data science student at uc irvine. he writes software, researches astronaut interfaces with nasa suits, and helps run student organizations.",
+  bio: "is a data science student at uc irvine. he writes software, publishes research, makes radiohead his personality, and tells everyone he ran a half marathon.",
   links: [
     { label: "EMAIL", href: "mailto:hi@andyrew.dev" },
     { label: "GITHUB", href: "https://github.com/pandyrew" },
